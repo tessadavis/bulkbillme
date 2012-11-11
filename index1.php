@@ -11,25 +11,25 @@ if(isset($_POST['formSubmit']))
 	    $varState = $_POST['state'];
 	    $varPhone = $_POST['phone'];
 	    $varBulkbill = $_POST['bulkbill'];
-	    
-   $con = mysql_connect("localhost","tessadavis","password");
-   if(!$con)
-    {
-   die('Could not connect:'. mysql_error());
-    }
-    
-    mysql_select_db("BulkBillMe", $con);
 
-    $query = "Insert into BulkBillMe (GPSurg,add1,add2, add3, suburb, postcode, state, phone, bulkbill, ) 
+	   $con = mysql_connect("localhost","root","");
+	   if(!$con)
+		{
+	   die('Could not connect:'. mysql_error());
+		}
+    
+		mysql_select_db("BulkBillMe", $con);
+
+		$query = "Insert into BulkBillMe (GPSurg,add1,add2, add3, suburb, postcode, state, phone, bulkbill) 
     VALUES ('".$varGPSurg."','".$varAdd1."','".$varAdd2."','".$varAdd3."','".$varSuburb."','".$varPostcode."','".$varState."','".$varPhone."','".$varBulkbill."')";
 
-    if(!mysql_query($query,$con))
-    {
-    	die('Error:'. mysql_error());
-    }
+		if(!mysql_query($query,$con))
+		{
+			die('Error:'. mysql_error());
+		}
 
-    echo "<div class='alert'>Record Entered Successfully</div>";
-    mysql_close($con);
+		echo "<div class='alert'>Record Entered Successfully</div>";
+		mysql_close($con);
 
     }
 
@@ -51,7 +51,7 @@ if(isset($_POST['formSubmit']))
 <div class="container">
 
 <h1> Form for building Bulk Bill Me database</h1><br/><br/>
-<form name="bulkbillme" class="form-horizontal" action="index1.php" method="post" onsubmit="return validate_form();">
+<form name="bulkbillme" class="form-horizontal" action="index.php" method="post" onsubmit="return validate_form();">
 
 
   
