@@ -12,7 +12,7 @@ if(isset($_POST['formSubmit']))
 	    $varPhone = $_POST['phone'];
 	    $varBulkbill = $_POST['bulkbill'];
 
-	   $con = mysql_connect("localhost","root","");
+	   $con = mysql_connect("localhost","tessadavis","password");
 	   if(!$con)
 		{
 	   die('Could not connect:'. mysql_error());
