@@ -1,3 +1,4 @@
+
 <?php
    
 if(isset($_POST['formSubmit']))
@@ -11,25 +12,25 @@ if(isset($_POST['formSubmit']))
 	    $varState = $_POST['state'];
 	    $varPhone = $_POST['phone'];
 	    $varBulkbill = $_POST['bulkbill'];
-
-	   $con = mysql_connect("localhost","tessadavis","password");
-	   if(!$con)
-		{
-	   die('Could not connect:'. mysql_error());
-		}
+	    
+   $con = mysql_connect("localhost","tessadavis","password");
+   if(!$con)
+    {
+   die('Could not connect:'. mysql_error());
+    }
     
-		mysql_select_db("BulkBillMe", $con);
+    mysql_select_db("BulkBillMe", $con);
 
-		$query = "Insert into BulkBillMe (GPSurg,add1,add2, add3, suburb, postcode, state, phone, bulkbill) 
+    $query = "Insert into BulkBillMe (GPSurg,Add1,Add2, Add3, Suburb, Postcode, State, Phone, Bulkbill, ) 
     VALUES ('".$varGPSurg."','".$varAdd1."','".$varAdd2."','".$varAdd3."','".$varSuburb."','".$varPostcode."','".$varState."','".$varPhone."','".$varBulkbill."')";
 
-		if(!mysql_query($query,$con))
-		{
-			die('Error:'. mysql_error());
-		}
+    if(!mysql_query($query,$con))
+    {
+    	die('Error:'. mysql_error());
+    }
 
-		echo "<div class='alert'>Record Entered Successfully</div>";
-		mysql_close($con);
+    echo "<div class='alert'>Record Entered Successfully</div>";
+    mysql_close($con);
 
     }
 
@@ -48,57 +49,81 @@ if(isset($_POST['formSubmit']))
 
 </head>
 <body>
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <a class="brand" href="#">BulkBillMe</a>
+    <ul class="nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Search for a GP</a></li>
+      <li><a href="#">Add a GP</a></li>
+    </ul>
+  </div>
+</div>
 <div class="container">
 
-<h1> Form for building Bulk Bill Me database</h1><br/><br/>
-<form name="bulkbillme" class="form-horizontal" action="index.php" method="post" onsubmit="return validate_form();">
+<h1> Bulk Bill Me database</h1><br/><br/>
+<form name="bulkbillme" class="form-horizontal" action="index1.php" method="post" onsubmit="return validate_form();">
 
-
-  
+    
+      
 <div class="control-group">
-		<label class="control-label">GP Surgery Name: <input type="text" name="gpsurg"  id="gpsurg"/></label>
-	</div>
+	<legend>Add to the Database</legend>
+		<label class="control-label">GP Surgery Name: </label>
+			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Address Line 1: <input type="text" name="add1"  id="add1"/></label>
-	</div>
+		<label class="control-label">Address Line 1: </label>
+			<div class="controls"><input type="text" name="add1"  id="add1"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Address Line 2: <input type="text" name="add2"  id="add2"/></label>
-	</div>
+		<label class="control-label">Address Line 2: </label>
+			<div class="controls"><input type="text" name="add2"  id="add2"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Address Line 3: <input type="text" name="add3"  id="add3"/></label>
-	</div>
+		<label class="control-label">Address Line 3: </label>
+			<div class="controls"><input type="text" name="add3"  id="add3"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Suburb: <input type="text" name="suburb"  id="suburb"/></label>
-	</div>
+		<label class="control-label">Suburb: </label>
+			<div class="controls"><input type="text" name="suburb"  id="suburb"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Postcode: <input type="text" name="postcode"  id="postcode"/></label>
-	</div>
+		<label class="control-label">Postcode: </label>
+			<div class="controls"><input type="text" name="postcode"  id="postcode"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">State: <input type="text" name="state"  id="state"/></label>
-	</div>
+		<label class="control-label">State: </label>
+			<div class="controls"><input type="text" name="state"  id="state"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Phone Number: <input type="text" name="phone"  id="phone"/></label>
-	</div>
+		<label class="control-label">Phone Number: </label>
+			<div class="controls"><input type="text" name="phone"  id="phone"/></div>
+	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Bulk Billing Details: <input type="text" name="bulkbill"  id="bulkbill"/></label>
-	</div>
+		<label class="control-label">Bulk Billing Details</label>
+			<div class="controls"><input type="text"area rows="3"" name="bulkbill"  id="bulkbill"/>
+	
 </div>
+
+
 
 <div class="control-group">
 	<div class="controls">
