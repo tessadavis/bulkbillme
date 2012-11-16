@@ -1,41 +1,4 @@
 
-<?php
-   
-if(isset($_POST['formSubmit']))
-	{
-		$varGPSurg = $_POST['gpsurg'];
-	  	$varAdd1 = $_POST['add1'];
-	    $varAdd2 = $_POST['add2'];
-	    $varAdd3 = $_POST['add3'];
-	    $varSuburb = $_POST['suburb'];
-	    $varPostcode = $_POST['postcode'];
-	    $varState = $_POST['state'];
-	    $varPhone = $_POST['phone'];
-	    $varBulkbill = $_POST['bulkbill'];
-	    
-   $con = mysql_connect("localhost","tessadavis","password");
-   if(!$con)
-    {
-   die('Could not connect:'. mysql_error());
-    }
-    
-    mysql_select_db("BulkBillMe", $con);
-
-    $query = "Insert into BulkBillMe (GPSurg,Add1,Add2, Add3, Suburb, Postcode, State, Phone, Bulkbill, ) 
-    VALUES ('".$varGPSurg."','".$varAdd1."','".$varAdd2."','".$varAdd3."','".$varSuburb."','".$varPostcode."','".$varState."','".$varPhone."','".$varBulkbill."')";
-
-    if(!mysql_query($query,$con))
-    {
-    	die('Error:'. mysql_error());
-    }
-
-    echo "<div class='alert'>Record Entered Successfully</div>";
-    mysql_close($con);
-
-    }
-
- 
-?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--Next comes the beginning html tag-->
@@ -52,86 +15,21 @@ if(isset($_POST['formSubmit']))
 
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
-    <a class="brand" href="#">BulkBillMe</a>
+    <a class="brand" href="index1.php">BulkBillMe</a>
     <ul class="nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="index1.php">Home</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">Search for a GP</a></li>
-      <li><a href="#">Add a GP</a></li>
+      <li><a href="add.php">Add a GP</a></li>
     </ul>
   </div>
 </div>
 <div class="container">
 
-<h1> Bulk Bill Me database</h1><br/><br/>
-<form name="bulkbillme" class="form-horizontal" action="index1.php" method="post" onsubmit="return validate_form();">
-
-    
-      
-<div class="control-group">
-	<legend>Add to the Database</legend>
-		<label class="control-label">GP Surgery Name: </label>
-			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">Address Line 1: </label>
-			<div class="controls"><input type="text" name="add1"  id="add1"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">Address Line 2: </label>
-			<div class="controls"><input type="text" name="add2"  id="add2"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">Address Line 3: </label>
-			<div class="controls"><input type="text" name="add3"  id="add3"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">Suburb: </label>
-			<div class="controls"><input type="text" name="suburb"  id="suburb"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">Postcode: </label>
-			<div class="controls"><input type="text" name="postcode"  id="postcode"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">State: </label>
-			<div class="controls"><input type="text" name="state"  id="state"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">Phone Number: </label>
-			<div class="controls"><input type="text" name="phone"  id="phone"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label">Bulk Billing Details</label>
-			<div class="controls"><input type="text"area rows="3"" name="bulkbill"  id="bulkbill"/>
-	
-</div>
+<h1> Welcome to BulkBillMe!</h1><br/><br/>
 
 
-
-<div class="control-group">
-	<div class="controls">
-		<input name="formSubmit" class="btn btn-success btn-large" type="submit" />
-	</div>
-</div>
-
-</form>
+<h2> We are making a beautiful website to improve access to healthcare.  Come and join us.</h2>
 </div>
 </body>
 </html>
