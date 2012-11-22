@@ -56,42 +56,33 @@ if(isset($_POST['formSubmit']))
     <ul class="nav">
       <li><a href="index1.php">Home</a></li>
       <li><a href="#">About Us</a></li>
-      <li><a href="search.php">Search for a GP</a></li>
-      <li class="active"><a href="add.php">Add a GP</a></li>
+      <li class="active"><a href="search.php">Search for a GP</a></li>
+      <li><a href="add.php">Add a GP</a></li>
     </ul>
   </div>
 </div>
 <div class="container">
 
 <h1> Bulk Bill Me database</h1><br/><br/>
-<form name="bulkbillme" class="form-horizontal" action="index1.php" method="post" onsubmit="return validate_form();">
+<form name="bulkbillme" class="form-horizontal" action="search.php" method="post" onsubmit="return validate_form();">
 
     
       
 <div class="control-group">
-	<legend>Add to the Database</legend>
+	<legend>Search the Database</legend>
 		<label class="control-label">GP Surgery Name: </label>
 			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg"/></div>
+
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Address Line 1: </label>
-			<div class="controls"><input type="text" name="add1"  id="add1"/></div>
-	
-</div>
+	<div class="controls">
+		<input name="formSubmit" class="btn btn-success btn-large" type="Search by Name" />
+	</div>
 
-<div class="control-group">
-		<label class="control-label">Address Line 2: </label>
-			<div class="controls"><input type="text" name="add2"  id="add2"/></div>
-	
-</div>
 
-<div class="control-group">
-		<label class="control-label">Address Line 3: </label>
-			<div class="controls"><input type="text" name="add3"  id="add3"/></div>
-	
-</div>
+
 
 <div class="control-group">
 		<label class="control-label">Suburb: </label>
@@ -110,6 +101,11 @@ if(isset($_POST['formSubmit']))
 			<div class="controls"><input type="text" name="state"  id="state"/></div>
 	
 </div>
+
+<div class="control-group">
+	<div class="controls">
+		<input name="formSubmit" class="btn btn-success btn-large" type="Search by Address" />
+	</div>
 
 <div class="control-group">
 		<label class="control-label">Phone Number: </label>

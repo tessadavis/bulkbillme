@@ -19,7 +19,7 @@
     <ul class="nav">
       <li class="active"><a href="index1.php">Home</a></li>
       <li><a href="#">About Us</a></li>
-      <li><a href="#">Search for a GP</a></li>
+      <li><a href="search.php">Search for a GP</a></li>
       <li><a href="add.php">Add a GP</a></li>
     </ul>
   </div>
