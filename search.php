@@ -55,7 +55,11 @@ if(isset($_POST['formSubmit']))
     <a class="brand" href="index1.php">BulkBillMe</a>
     <ul class="nav">
       <li><a href="index1.php">Home</a></li>
+<<<<<<< HEAD
       <li><a href="#">About Us</a></li>
+=======
+      <li><a href="about.php">About Us</a></li>
+>>>>>>> added an 'about us' page, a 'search' form and improved the look of the app a bit.
       <li class="active"><a href="search.php">Search for a GP</a></li>
       <li><a href="add.php">Add a GP</a></li>
     </ul>
@@ -69,12 +73,17 @@ if(isset($_POST['formSubmit']))
     
       
 <div class="control-group">
+<<<<<<< HEAD
 	<legend>Search the Database</legend>
+=======
+	<legend>Search the Database by GP Name</legend>
+>>>>>>> added an 'about us' page, a 'search' form and improved the look of the app a bit.
 		<label class="control-label">GP Surgery Name: </label>
 			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg"/></div>
 
 	
 </div>
+<<<<<<< HEAD
 
 <div class="control-group">
 	<div class="controls">
@@ -85,6 +94,19 @@ if(isset($_POST['formSubmit']))
 
 
 <div class="control-group">
+=======
+<br>
+<div class="control-group">
+	<div class="controls">
+		<input name="formSubmit" class="btn btn-inverse btn-large" type="submit" value="Search"/>
+	</div>
+<br>
+<br>
+
+
+<div class="control-group">
+	<legend>Search the Database by Address</legend>
+>>>>>>> added an 'about us' page, a 'search' form and improved the look of the app a bit.
 		<label class="control-label">Suburb: </label>
 			<div class="controls"><input type="text" name="suburb"  id="suburb"/></div>
 	
@@ -97,6 +119,7 @@ if(isset($_POST['formSubmit']))
 </div>
 
 <div class="control-group">
+<<<<<<< HEAD
 		<label class="control-label">State: </label>
 			<div class="controls"><input type="text" name="state"  id="state"/></div>
 	
@@ -125,6 +148,27 @@ if(isset($_POST['formSubmit']))
 	<div class="controls">
 		<input name="formSubmit" class="btn btn-success btn-large" type="submit" />
 	</div>
+=======
+		<label class="control-label">Choose a state: </label>
+			<div class="controls">
+						<select>
+						  <option>NSW</option>
+						  <option>NT</option>
+						 <option>QLD</option>
+						  <option>TAS</option>
+						  <option>VIC</option>
+						  <option>WA</option>
+						</select></div>
+	
+</div>
+<br>
+<div class="control-group">
+	<div class="controls">
+		<input name="formSubmit" class="btn btn-inverse btn-large" type="submit" value="Search"/>
+	</div>
+
+
+>>>>>>> added an 'about us' page, a 'search' form and improved the look of the app a bit.
 </div>
 
 </form>

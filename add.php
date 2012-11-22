@@ -55,7 +55,11 @@ if(isset($_POST['formSubmit']))
     <a class="brand" href="index1.php">BulkBillMe</a>
     <ul class="nav">
       <li><a href="index1.php">Home</a></li>
+<<<<<<< HEAD
       <li><a href="#">About Us</a></li>
+=======
+      <li><a href="about.php">About Us</a></li>
+>>>>>>> added an 'about us' page, a 'search' form and improved the look of the app a bit.
       <li><a href="search.php">Search for a GP</a></li>
       <li class="active"><a href="add.php">Add a GP</a></li>
     </ul>
@@ -70,64 +74,65 @@ if(isset($_POST['formSubmit']))
       
 <div class="control-group">
 	<legend>Add to the Database</legend>
-		<label class="control-label">GP Surgery Name: </label>
+		<label class="control-label"><h5>GP Surgery Name: </h5></label>
 			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Address Line 1: </label>
+		<label class="control-label"><h5>Address Line 1: </h5></label>
 			<div class="controls"><input type="text" name="add1"  id="add1"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Address Line 2: </label>
+		<label class="control-label"><h5>Address Line 2: </h5></label>
 			<div class="controls"><input type="text" name="add2"  id="add2"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Address Line 3: </label>
+		<label class="control-label"><h5>Address Line 3: </h5></label>
 			<div class="controls"><input type="text" name="add3"  id="add3"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Suburb: </label>
+		<label class="control-label"><h5>Suburb: </h5></label>
 			<div class="controls"><input type="text" name="suburb"  id="suburb"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Postcode: </label>
+		<label class="control-label"><h5>Postcode: </h5></label>
 			<div class="controls"><input type="text" name="postcode"  id="postcode"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">State: </label>
+		<label class="control-label"><h5>State: </h5></label>
 			<div class="controls"><input type="text" name="state"  id="state"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Phone Number: </label>
+		<label class="control-label"><h5>Phone Number: <h5></label>
 			<div class="controls"><input type="text" name="phone"  id="phone"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Bulk Billing Details</label>
+		<label class="control-label"><h5>Bulk Billing Details</h5></label>
 			<div class="controls"><input type="text"area rows="3"" name="bulkbill"  id="bulkbill"/>
 	
 </div>
 
+<br>
 
 
 <div class="control-group">
 	<div class="controls">
-		<input name="formSubmit" class="btn btn-success btn-large" type="submit" />
+		<input name="formSubmit" class="btn btn-inverse btn-large" type="submit" />
 	</div>
 </div>
 

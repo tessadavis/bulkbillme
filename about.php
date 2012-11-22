@@ -17,12 +17,8 @@
   <div class="navbar-inner">
     <a class="brand" href="index1.php">BulkBillMe</a>
     <ul class="nav">
-      <li class="active"><a href="index1.php">Home</a></li>
-<<<<<<< HEAD
-      <li><a href="#">About Us</a></li>
-=======
-      <li><a href="about.php">About Us</a></li>
->>>>>>> added an 'about us' page, a 'search' form and improved the look of the app a bit.
+      <li><a href="index1.php">Home</a></li>
+      <li  class="active"><a href="about.php">About Us</a></li>
       <li><a href="search.php">Search for a GP</a></li>
       <li><a href="add.php">Add a GP</a></li>
     </ul>
@@ -30,10 +26,10 @@
 </div>
 <div class="container">
 
-<h1> Welcome to BulkBillMe!</h1><br/><br/>
+<h1> All about us...</h1><br/><br/>
 
 
-<h2> We are making a beautiful website to improve access to healthcare.  Come and join us.</h2>
+<h2> This was website was built as part of Team Treehouse's Independent Studies programme</h2>
 </div>
 </body>
 </html>
