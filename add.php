@@ -53,7 +53,7 @@ if(isset($_POST['formSubmit']))
 
 <div class="navbar navbar-inverse">
   <div class="navbar-inner">
-    <a class="brand" href="index1.php">BulkBillMe</a>
+    <a class="brand" href="index.php">BulkBillMe</a>
     <ul class="nav">
       <li><a href="index.php">Home</a></li>
       <li><a href="about.php">About Us</a></li>
