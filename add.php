@@ -1,4 +1,3 @@
-
 <?php
    
 if(isset($_POST['formSubmit']))
@@ -40,9 +39,11 @@ if(isset($_POST['formSubmit']))
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!--Next comes the beginning html tag-->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-
 <head>
 	 <link href="bootstrap.css" rel="stylesheet" type="text/css"/>
+	 <script src="jquery.js" type="text/javascript"/></script>
+	 <script src="validation.js" type="text/javascript"/></script>
+	 
 	 
 	 <title>Bulk Bill Me</title>
 
@@ -55,88 +56,91 @@ if(isset($_POST['formSubmit']))
     <a class="brand" href="index1.php">BulkBillMe</a>
     <ul class="nav">
       <li><a href="index1.php">Home</a></li>
-<<<<<<< HEAD
-      <li><a href="#">About Us</a></li>
-=======
       <li><a href="about.php">About Us</a></li>
->>>>>>> added an 'about us' page, a 'search' form and improved the look of the app a bit.
       <li><a href="search.php">Search for a GP</a></li>
       <li class="active"><a href="add.php">Add a GP</a></li>
     </ul>
   </div>
 </div>
-<div class="container">
 
+<div class="container">
 <h1> Bulk Bill Me database</h1><br/><br/>
-<form name="bulkbillme" class="form-horizontal" action="index1.php" method="post" onsubmit="return validate_form();">
+<div class="row">
+<div class="span7">
+
+
+<form name="bulkbillme" class="form-horizontal" action="" method="post" onsubmit="return validate();">
 
     
       
 <div class="control-group">
 	<legend>Add to the Database</legend>
-		<label class="control-label"><h5>GP Surgery Name: </h5></label>
-			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg"/></div>
+		<label class="control-label">GP Surgery Name: </label>
+			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg" placeholder="Enter Surgery Name" /></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label"><h5>Address Line 1: </h5></label>
-			<div class="controls"><input type="text" name="add1"  id="add1"/></div>
+		<label class="control-label">Surgery Address: </label>
+			<div class="controls"><textarea id="add1" placeholder="Enter Address"></textarea></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label"><h5>Address Line 2: </h5></label>
-			<div class="controls"><input type="text" name="add2"  id="add2"/></div>
+		<label class="control-label">Suburb: </label>
+			<div class="controls"><input type="text" name="suburb" placeholder="Enter Suburb"  id="suburb"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label"><h5>Address Line 3: </h5></label>
-			<div class="controls"><input type="text" name="add3"  id="add3"/></div>
+		<label class="control-label">Postcode: </label>
+			<div class="controls"><input type="text" name="postcode" placeholder="Enter Postcode"  id="postcode"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label"><h5>Suburb: </h5></label>
-			<div class="controls"><input type="text" name="suburb"  id="suburb"/></div>
+		<label class="control-label">Choose a state: </label>
+			<div class="controls">
+						<select id="state">
+						  <option>Please Enter a State...</option>
+						  <option>NSW</option>
+						  <option>NT</option>
+						  <option>QLD</option>
+						  <option>TAS</option>
+						  <option>VIC</option>
+						  <option>WA</option>
+						</select></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label"><h5>Postcode: </h5></label>
-			<div class="controls"><input type="text" name="postcode"  id="postcode"/></div>
+		<label class="control-label">Phone Number: </label>
+			<div class="controls">( <input type="text" name="area" class="span1" placeholder=" ##"  id="area"/> ) <input type="text" name="phone" placeholder="Enter Phone Number"  id="phone"/></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label"><h5>State: </h5></label>
-			<div class="controls"><input type="text" name="state"  id="state"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label"><h5>Phone Number: <h5></label>
-			<div class="controls"><input type="text" name="phone"  id="phone"/></div>
-	
-</div>
-
-<div class="control-group">
-		<label class="control-label"><h5>Bulk Billing Details</h5></label>
+		<label class="control-label">Bulk Billing Details</label>
 			<div class="controls"><input type="text"area rows="3"" name="bulkbill"  id="bulkbill"/>
 	
 </div>
+</div>
 
-<br>
 
 
 <div class="control-group">
 	<div class="controls">
-		<input name="formSubmit" class="btn btn-inverse btn-large" type="submit" />
+		<input name="formSubmit" class="btn btn-success btn-large" type="submit" />
 	</div>
 </div>
 
 </form>
 </div>
+<div class="span5" id="errors">
+
+</div>
+</div>
+</div>
+
 </body>
 </html>
