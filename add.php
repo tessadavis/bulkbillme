@@ -55,7 +55,7 @@ if(isset($_POST['formSubmit']))
   <div class="navbar-inner">
     <a class="brand" href="index1.php">BulkBillMe</a>
     <ul class="nav">
-      <li><a href="index1.php">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <li><a href="about.php">About Us</a></li>
       <li><a href="search.php">Search for a GP</a></li>
       <li class="active"><a href="add.php">Add a GP</a></li>
