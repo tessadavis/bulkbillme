@@ -1,8 +1,9 @@
+var errors = new Array();
 $(function(){
 	$('#gpsurg, #add1, #add2, #add3').change(function() {
 			text = $(this).val();
 			//Alpha and Num
-			if( /[^a-zA-Z0-9]$/.test(text) ) {
+			if( /[^a-zA-Z0-9]$/.test(text)) {
 					//errors.push(test);
 					$(this).parent().parent().addClass("error").removeClass("success");
 					
@@ -11,7 +12,28 @@ $(function(){
 					$(this).parent().parent().addClass("success").removeClass("error");
 				}
 	});
-
+	
+	$('#gpsurg, #add1, #add2, #add3, #suburb, #postcode, #area, #phone').focus(function() {
+			text = $(this).val();
+			name = $(this).attr("name");
+			//If Empty
+			if(text == ""  || text == null) {
+					$(this).parent().parent().addClass("error").removeClass("success");
+					errors.push(name)
+					return false
+				}
+	});
+	
+		$('#gpsurg, #add1, #add2, #add3, #suburb, #postcode, #area, #phone').blur(function() {
+			text = $(this).val();
+			name = $(this).attr("name");
+			//If not Empty
+			if(text != "" ) {
+					errors.splice(name)
+					return false
+				}
+	});
+	
 	$('#suburb').change(function() {
 			text = $(this).val();
 			//Alpha
@@ -48,8 +70,6 @@ $(function(){
 });
 
 function validate() {
-
-	var errors = new Array();
 	
 	//Alphanumeric Validation
 	function alphaNum(test){
@@ -78,20 +98,62 @@ function validate() {
 		return true
 	}
 	
+	//State Validation
+	function State(test){
+		var text = document.getElementById(test).value;
+		if( text == "Please Enter a State..." ) {
+				errors.push(test);
+			}
+		return true
+	}
 	
-	if (alphaNum('gpsurg') && alphaNum('add1') && Alpha('suburb') && Num('postcode') && Num('state') && Num('area') && Num('phone') && errors.length == 0)
+	function getName(name){
+		switch(name){
+			case "gpsurg":
+				return "GP Surgery Name";
+			break;
+			
+			case "state":
+				return "State";
+			break;
+			
+			case "add1":
+				return "Surgery Address";
+			break;
+			
+			case "suburb":
+				return "Suburb";
+			break;
+			
+			case "postcode":
+				return "Postcode";
+			break;
+			
+			case "area":
+				return "Area Code";
+			break;
+			
+			case "phone":
+				return "Phone Number";
+			break;
+		}
+	}
+	
+	
+	if (alphaNum('gpsurg') && alphaNum('add1') && Alpha('suburb') && Num('postcode') && State('state') && Num('area') && Num('phone') && errors.length == 0)
 	{
 		alert("works");
 	}
 	else {
 		legend = "<legend> Please Correct the following errors </legend><ul>";
-		list = new Array();
-		document.getElementById("errors").innerHTML = legend;
+		
 		for (i=0; i<errors.length;i++){
-		 list.push("<li>"+errors[i]+"</li>")
+		 legend +="<li class='error'>"+getName(errors[i])+"</li>"
 		 
 		 console.log(errors[i]);
 		}
+	legend += "</ul>";
+	document.getElementById("errors").innerHTML = legend;
 	return false;
 	}
 }
