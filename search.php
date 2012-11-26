@@ -1,4 +1,18 @@
 <?php
+  $con = mysql_connect("localhost","root","");
+   if(!$con)
+    {
+   die('Could not connect:'. mysql_error());
+    }
+ 
+    mysql_select_db("BulkBillMe", $con);
+
+if(isset($_POST['quickSearch']))
+	{
+		$varGPSurg = $_POST['gpsurg'];
+		
+    }
+	
 if(isset($_POST['formSubmit']))
 	{
 		$varGPSurg = $_POST['gpsurg'];
@@ -10,27 +24,8 @@ if(isset($_POST['formSubmit']))
 	    $varState = $_POST['state'];
 	    $varPhone = $_POST['phone'];
 	    $varBulkbill = $_POST['bulkbill'];
-	    
-   $con = mysql_connect("localhost","tessadavis","password");
-   if(!$con)
-    {
-   die('Could not connect:'. mysql_error());
     }
-    
-    mysql_select_db("BulkBillMe", $con);
-
-    $query = "Insert into BulkBillMe (GPSurg,Add1,Add2, Add3, Suburb, Postcode, State, Phone, Bulkbill, ) 
-    VALUES ('".$varGPSurg."','".$varAdd1."','".$varAdd2."','".$varAdd3."','".$varSuburb."','".$varPostcode."','".$varState."','".$varPhone."','".$varBulkbill."')";
-
-    if(!mysql_query($query,$con))
-    {
-    	die('Error:'. mysql_error());
-    }
-
-    echo "<div class='alert'>Record Entered Successfully</div>";
-    mysql_close($con);
-
-    }
+	mysql_close($con);
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -55,37 +50,20 @@ if(isset($_POST['formSubmit']))
 </div>
 
 <div class="container">
-
-<h1> Bulk Bill Me database</h1><br/><br/>
-<form name="bulkbillme" class="form-horizontal" action="search.php" method="post" onsubmit="return validate();">
-
-    
-      
+<div class="row">
+<div class="span4">
+<h3>Search</h3>
 <div class="control-group">
 	<legend>Search the Database</legend>
-	<legend>Search the Database by GP Name</legend>
 
 		<label class="control-label">GP Surgery Name: </label>
 			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg"/></div>
+			<input name="quickSearch" class="btn btn-inverse btn-large" type="submit" value="Search"/>
 </div>
 
-<div class="control-group">
-	<div class="controls">
-		<input name="formSubmit" class="btn btn-success btn-large" type="Search by Name" />
-	</div>
 
 <div class="control-group">
-<br>
-<div class="control-group">
-	<div class="controls">
-		<input name="formSubmit" class="btn btn-inverse btn-large" type="submit" value="Search"/>
-	</div>
-<br>
-<br>
-
-
-<div class="control-group">
-	<legend>Search the Database by Address</legend>
+	<legend>Advanced Search</legend>
 		<label class="control-label">Suburb: </label>
 			<div class="controls"><input type="text" name="suburb"  id="suburb"/></div>
 	
@@ -98,16 +76,18 @@ if(isset($_POST['formSubmit']))
 </div>
 
 <div class="control-group">
-
-		<label class="control-label">State: </label>
-			<div class="controls"><input type="text" name="state"  id="state"/></div>
+		<label class="control-label">Choose a state: </label>
+			<div class="controls">
+						<select>
+						  <option>NSW</option>
+						  <option>NT</option>
+						  <option>QLD</option>
+						  <option>TAS</option>
+						  <option>VIC</option>
+						  <option>WA</option>
+						</select></div>
 	
 </div>
-
-<div class="control-group">
-	<div class="controls">
-		<input name="formSubmit" class="btn btn-success btn-large" type="Search by Address" />
-	</div>
 
 <div class="control-group">
 		<label class="control-label">Phone Number: </label>
@@ -121,32 +101,22 @@ if(isset($_POST['formSubmit']))
 	
 </div>
 
-
-
-<div class="control-group">
-	<div class="controls">
-		<input name="formSubmit" class="btn btn-success btn-large" type="submit" />
-	</div>
-		<label class="control-label">Choose a state: </label>
-			<div class="controls">
-						<select>
-						  <option>NSW</option>
-						  <option>NT</option>
-						  <option>QLD</option>
-						  <option>TAS</option>
-						  <option>VIC</option>
-						  <option>WA</option>
-						</select></div>
-	
-</div>
-<br>
-<div class="control-group">
-	<div class="controls">
+<div class="controls">
 		<input name="formSubmit" class="btn btn-inverse btn-large" type="submit" value="Search"/>
 	</div>
-</div>
+<br>
 
 </form>
+</div>
+</div>
+<div class="span7">
+<h1> Bulk Bill Me database</h1><br/><br/>
+<form name="bulkbillme" class="form-horizontal" action="search.php" method="post" onsubmit="return validate();">
+
+    
+      
+
+</div>
 </div>
 </body>
 </html>
