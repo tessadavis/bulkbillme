@@ -4,15 +4,13 @@ if(isset($_POST['formSubmit']))
 	{
 		$varGPSurg = $_POST['gpsurg'];
 	  	$varAdd1 = $_POST['add1'];
-	    $varAdd2 = $_POST['add2'];
-	    $varAdd3 = $_POST['add3'];
 	    $varSuburb = $_POST['suburb'];
 	    $varPostcode = $_POST['postcode'];
 	    $varState = $_POST['state'];
 	    $varPhone = $_POST['phone'];
 	    $varBulkbill = $_POST['bulkbill'];
 	    
-   $con = mysql_connect("localhost","tessadavis","password");
+   $con = mysql_connect("localhost","root","");
    if(!$con)
     {
    die('Could not connect:'. mysql_error());
@@ -20,8 +18,8 @@ if(isset($_POST['formSubmit']))
     
     mysql_select_db("BulkBillMe", $con);
 
-    $query = "Insert into BulkBillMe (GPSurg,Add1,Add2, Add3, Suburb, Postcode, State, Phone, Bulkbill, ) 
-    VALUES ('".$varGPSurg."','".$varAdd1."','".$varAdd2."','".$varAdd3."','".$varSuburb."','".$varPostcode."','".$varState."','".$varPhone."','".$varBulkbill."')";
+    $query = "Insert into BulkBillMe (GPSurg,Add1,Suburb, Postcode, State, Phone, Bulkbill) 
+    VALUES ('".$varGPSurg."','".$varAdd1."','".$varSuburb."','".$varPostcode."','".$varState."','".$varPhone."','".$varBulkbill."')";
 
     if(!mysql_query($query,$con))
     {
@@ -59,6 +57,7 @@ if(isset($_POST['formSubmit']))
       <li><a href="about.php">About Us</a></li>
       <li><a href="search.php">Search for a GP</a></li>
       <li class="active"><a href="add.php">Add a GP</a></li>
+	  <li><a href="admin.php">Admin</a></li>
     </ul>
   </div>
 </div>
@@ -75,14 +74,15 @@ if(isset($_POST['formSubmit']))
       
 <div class="control-group">
 	<legend>Add to the Database</legend>
-		<label class="control-label">GP Surgery Name: </label>
+	<p> All fields are required. </p>
+		<label class="control-label">* GP Surgery Name: </label>
 			<div class="controls"><input type="text" name="gpsurg"  id="gpsurg" placeholder="Enter Surgery Name" /></div>
 	
 </div>
 
 <div class="control-group">
-		<label class="control-label">Surgery Address: </label>
-			<div class="controls"><textarea id="add1" placeholder="Enter Address"></textarea></div>
+		<label class="control-label">* Surgery Address: </label>
+			<div class="controls"><textarea id="add1" name="add1" placeholder="Enter Address"></textarea></div>
 	
 </div>
 
@@ -101,7 +101,7 @@ if(isset($_POST['formSubmit']))
 <div class="control-group">
 		<label class="control-label">Choose a state: </label>
 			<div class="controls">
-						<select id="state">
+						<select id="state" name="state">
 						  <option>Please Enter a State...</option>
 						  <option>NSW</option>
 						  <option>NT</option>
